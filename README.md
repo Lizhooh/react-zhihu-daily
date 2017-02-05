@@ -1,4 +1,4 @@
-# react-zhihu-ribao
+# react-zhihu-daily
 基于 React.js 的 Webapp 知乎日报 (非官方)
 
 ## Use
@@ -16,6 +16,7 @@ npm run build
 
 
 ### Add sass/less
+
 ``` bash
 cd node_modules/react-scripts
 npm install --save sass-loader
