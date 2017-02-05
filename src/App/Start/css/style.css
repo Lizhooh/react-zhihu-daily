@@ -1,0 +1,39 @@
+.start-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 9999999;
+}
+.start-container > .img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  animation: img 6s ease-in-out alternate 1;
+}
+@keyframes img {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  70% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.start-container > .text {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-style: 20px;
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
