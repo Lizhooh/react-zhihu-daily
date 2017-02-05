@@ -7,7 +7,7 @@
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:9999 (setting port in config/index.js)
+# serve with hot reload at localhost:3000
 npm start
 
 # build for production with minification
@@ -15,7 +15,7 @@ npm run build
 ```
 
 
-### add sass/less
+### Add sass/less
 ``` bash
 cd node_modules/react-scripts
 npm install --save sass-loader
