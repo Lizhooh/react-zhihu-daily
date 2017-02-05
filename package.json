@@ -1,0 +1,24 @@
+{
+    "name": "zhihu-ribao",
+    "version": "0.1.0",
+    "private": true,
+    "author": "Lizhooh <960316408@qq.com>",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
+    },
+    "devDependencies": {
+        "react-scripts": "0.8.5"
+    },
+    "dependencies": {
+        "react": "^15.4.2",
+        "react-dom": "^15.4.2",
+        "isomorphic-fetch": "^2.2.1"
+    },
+    "engines": {
+        "node": ">= 4.0.0",
+        "npm": ">= 3.0.0"
+    }
+}
