@@ -29,6 +29,17 @@
         }
     }
 
+    > .logo {
+        position: absolute;
+        bottom: 60px;
+        left: 0; right: 0;
+        font-size: 32px;
+        color: #fff;
+        text-align: center;
+
+        text-shadow: 0 1px 3px #777;
+    }
+
     > .text {
         position: absolute;
         bottom: 30px;
@@ -36,5 +47,7 @@
         color: #fff;
         font-style: 20px;
         text-align: center;
+
+        text-shadow: 0 1px 3px #777;
     }
 }

@@ -22,6 +22,7 @@ export default class Slide extends Component {
             !this.props.hide &&
             <div className="start-container">
                 <img className="img" src={this.props.dataSource.img} alt="" />
+                <div className="logo">知乎日报</div>
                 <div className="text">{this.props.dataSource.text}</div>
             </div>
         );
