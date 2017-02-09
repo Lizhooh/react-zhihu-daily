@@ -1,6 +1,8 @@
 # react-zhihu-daily
 基于 React.js 的 Webapp 知乎日报 (非官方)
 
+## 要点
+
 ## Use
 
 ``` bash
@@ -22,3 +24,6 @@ cd node_modules/react-scripts
 npm install --save sass-loader
 npm install --save less-loader
 ```
+
+## License
+[Apache License 2.0](LICENSE)
