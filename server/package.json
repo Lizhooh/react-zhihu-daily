@@ -1,0 +1,20 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "zhihuribao nodejs server.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "no"
+  },
+  "author": "Lizhooh <960316408@qq.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "bufferhelper": "^0.2.1",
+    "express": "^4.14.0",
+    "iconv-lite": "^0.4.15",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.11.0"
+  }
+}
