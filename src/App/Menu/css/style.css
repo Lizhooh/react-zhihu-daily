@@ -1,0 +1,123 @@
+@charset "UTF-8";
+.menu-container {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.menu-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+.menu-container > .header {
+  padding: 10px;
+  background-color: #1ea5ff;
+  color: #fff;
+  cursor: default;
+}
+.menu-container > .header .header-body {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px;
+}
+.menu-container > .header .header-body .user-picture {
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+.menu-container > .header .header-body span {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+}
+.menu-container > .header .header-footer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+  justify-content: center;
+  align-items: center;
+}
+.menu-container > .header .header-footer span {
+  flex: 1;
+  padding: 5px 10px;
+  text-align: center;
+}
+.menu-container > .list {
+  flex: 1;
+  cursor: default;
+}
+.menu-container > .list .list-header {
+  background-color: rgba(1, 1, 1, 0.06);
+  color: #1ea5ff;
+  padding: 15px 20px;
+}
+.menu-container > .list .list-body .item-active {
+  background-color: rgba(1, 1, 1, 0.1);
+}
+.menu-container > .list .list-body li {
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.menu-container > .list .list-body li:active, .menu-container > .list .list-body li:focus {
+  transition: all 0.1s ease-in-out;
+  background-color: rgba(1, 1, 1, 0.05);
+  overflow: hidden;
+  position: relative;
+}
+.menu-container > .list .list-body li:active::after, .menu-container > .list .list-body li:focus::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(1, 1, 1, 0.05);
+  animation: li-active-am 0.7s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes li-active-am {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(20);
+  }
+}
+.menu-container > .list .list-body li .text {
+  flex: 1;
+  text-align: left;
+  font-family: 'consolas', '微软雅黑', Arial, sans-serif;
+  color: #222;
+}
+.menu-container > .list .list-body li .icon {
+  flex: 1;
+  text-align: right;
+  color: #bbb;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+/*# sourceMappingURL=style.css.map */
