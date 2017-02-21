@@ -1,5 +1,5 @@
 # react-zhihu-daily
-基于 React.js 的 Webapp 知乎日报 (非官方)
+基于 React.js 实现的 Webapp 知乎日报 (非官方)
 
 ![](/resource/demo.gif)
 
@@ -14,7 +14,7 @@
 # install dependencies
 npm install
 
-# before, run server
+# before, run nodejs server
 cd ./server
 npm install
 npm start
@@ -27,15 +27,6 @@ npm start
 
 # build for production with minification
 npm run build
-```
-
-
-### Add sass/less
-
-``` bash
-cd node_modules/react-scripts
-npm install --save sass-loader
-npm install --save less-loader
 ```
 
 ## License
