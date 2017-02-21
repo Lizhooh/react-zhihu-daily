@@ -39,4 +39,4 @@ npm install --save less-loader
 ```
 
 ## License
-[Apache License 2.0](LICENSE)
+此作品，仅限于个人兴趣与学习。
