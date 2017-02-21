@@ -4,8 +4,9 @@
 ![](/resource/demo.gif)
 
 ## 要点
-
-
+基于 React.js，WebPack 的组件开发
+基于 CSS3 动画，Flexbox 布局
+基于 Node.js 的后端 API 服务
 
 ## Use
 
