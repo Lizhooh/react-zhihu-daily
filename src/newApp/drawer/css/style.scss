@@ -1,0 +1,35 @@
+
+@import '../../Common/css/common';
+
+.drawer-contanier {
+    position: fixed;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    overflow: hidden;
+    transition: all 0.45s ease-in-out;
+    transform: translate3d(0, 0, 0);
+
+    > .menu {
+        background-color: #fff;
+        opacity: 1;
+        display: block;
+
+        transform: translate3d(-101%, 0, 0);
+        // transform: translate(-101%, 0%);
+        transition: all 0.45s ease-in-out;
+
+    }
+
+    > .menu-active {
+        transform: translate3d(0, 0, 0) !important;
+        // transform: translate(0%, 0%) !important;
+        box-shadow: 0 0 10px rgba(1, 1, 1, 0.6) !important;
+    }
+}
+

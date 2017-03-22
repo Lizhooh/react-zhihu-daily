@@ -1,0 +1,109 @@
+.listview-contanier {
+    margin: 0;
+    padding: 15px 16px;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .list-title {
+        color: #666;
+    }
+
+    .item {
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 1px 2px 3px #ccc;
+        margin: 20px 0;
+        min-height: 60px;
+
+        display: flex;
+        flex-direction: row;
+
+        &:last-of-type {
+            margin-bottom: 5px;
+        }
+
+        &:active, &:focus {
+            transition: all 0.1s ease-in-out;
+            background-color: rgba(1, 1, 1, 0.05);
+            overflow: hidden;
+            position: relative;
+
+            // 触摸时产生的动画
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0; bottom: 0;
+                left: 0; right: 0;
+                margin: auto;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                background-color:rgba(1, 1, 1, 0.05);
+                animation: li-active-am 0.7s ease-in-out;
+                animation-fill-mode: forwards;
+
+                @at-root {
+                    @keyframes li-active-am {
+                        0% {
+                            transform: scale(1);
+                        }
+                        100% {
+                            transform: scale(20);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .title {
+        flex: 1;
+        padding: 0 10px 0 5px;
+    }
+
+    .min-image {
+        width: 100px;
+        height: 80px;
+        background-color: rgba(1, 1, 1, 0.07);
+        padding: 0;
+        margin: 0;
+
+        > img {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 3px;
+            box-shadow: 0 0 0 transparent;
+        }
+    }
+
+    .list-editors {
+        display: flex;
+        flex-direction: row;
+
+        ul.editors {
+            margin: 0 15px;
+
+            li {
+                float: left;
+                margin-right: 8px;
+
+                img {
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
