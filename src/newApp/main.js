@@ -38,8 +38,8 @@ class Main extends Component {
         const menu = this.props.state.menu;
         const main = this.props.state.main;
 
-        if(main.active === 0) return '首页';
-        if(menu.source.others) {
+        if (main.active === 0) return '首页';
+        if (menu.source.others) {
             const d = menu.source.others.filter(i => i.id === main.active).shift();
             return (d && d.name) || '';
         }
@@ -75,7 +75,7 @@ class Main extends Component {
                         />
                 </div>
 
-                <div>
+                <div className="main-contanier">
                     <Toolbar
                         title={this.title}
                         iconName={'ion-navicon'}
@@ -90,7 +90,7 @@ class Main extends Component {
                             // overflow: menu.open || article.open ? 'hidden' : null,
                             position: menu.open || article.open ? 'fixed' : null,
                         }}
-                        className="main-contanier"
+                        className="main"
                         >
                         {
                             main.active === 0 ?
@@ -111,6 +111,15 @@ class Main extends Component {
                                     />
 
                         }
+                    </div>
+
+                    <div
+                        className="more"
+                        onClick={(event) => {
+                            // this.props.onListMore();
+                        } }
+                        >
+                        <span>更多</span>
                     </div>
                 </div>
 

@@ -11,46 +11,7 @@
         padding-bottom: 20px;
     }
 
-    .more {
-        color: #666;
-        background-color: #fff;
-        padding: 15px;
-        text-align: center;
-        color: #f00;
 
-        &:active, &:focus {
-            transition: all 0.1s ease-in-out;
-            background-color: rgba(1, 1, 1, 0.05);
-            overflow: hidden;
-            position: relative;
-
-            // 触摸时产生的动画
-            &::after {
-                content: "";
-                position: absolute;
-                top: 0; bottom: 0;
-                left: 0; right: 0;
-                margin: auto;
-                border-radius: 50%;
-                width: 20px;
-                height: 20px;
-                background-color:rgba(1, 1, 1, 0.05);
-                animation: li-active-am 0.7s ease-in-out;
-                animation-fill-mode: forwards;
-
-                @at-root {
-                    @keyframes li-active-am {
-                        0% {
-                            transform: scale(1);
-                        }
-                        100% {
-                            transform: scale(20);
-                        }
-                    }
-                }
-            }
-        }
-    }
 }
 
 @media screen and (max-width : 800px) {

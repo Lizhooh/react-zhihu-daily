@@ -1,7 +1,12 @@
 import './css/style.css';
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 
-export default ({date = '', dataSource = [], editors = '', onListItemClick}) => {
+export default ({
+    date            = '',
+    dataSource      = [],
+    editors         = '',
+    onListItemClick = () => { }
+}) => {
 
     const getTitle = (dates) => {
         // 20170125
@@ -47,7 +52,7 @@ export default ({date = '', dataSource = [], editors = '', onListItemClick}) => 
                 </div>
             }
             <ul className="list">{
-                dataSource.map(({ title, id, images }, index, list) => (
+                dataSource.map(({title, id, images}, index, list) => (
                     <li
                         className="item"
                         key={`article-${id}`}

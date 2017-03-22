@@ -37,6 +37,7 @@ class Article extends Component {
                     <img className="title-img" src={article.source.image} alt='' />
                     <div className="title-shade">
                         <div className="title-text">{article.source.title}</div>
+                        <div className="title-img-source">{article.source.image_source}</div>
                     </div>
                 </div>
             }

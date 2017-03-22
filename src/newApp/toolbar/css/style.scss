@@ -1,4 +1,3 @@
-
 @import '../../Common/css/common';
 
 .toolbar-contanier {
@@ -18,10 +17,10 @@
     justify-content: center;
     align-items: center;
 
-    box-shadow: 0 2px 5px #bbb;
+    box-shadow: 0 1px 3px #aaa;
 
     > .left {
-        flex: 1;
+        flex: 2;
         display: flex;
         flex-direction: row;
         align-items: center;
