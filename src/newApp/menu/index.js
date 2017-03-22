@@ -3,6 +3,7 @@ import React from 'react';
 import Drawer from '../drawer/index';
 
 export default (props) => {
+
     return (
         <div>
             <Drawer
@@ -44,7 +45,7 @@ export default (props) => {
                             props.dataSource.others &&
                             props.dataSource.others.map(({ name, id }, index) => (
                                 <li
-                                    className={props.active === id ? 'item-active' : ''}
+                                    className={props.active * 1 === id ? 'item-active' : ''}
                                     key={`theme-${index}`}
                                     onClick={(event) => {
                                         props.onMenuItemCilck(event, id);

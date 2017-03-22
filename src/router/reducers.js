@@ -2,9 +2,8 @@
 const MENUINIT = {
     open: true,
     show: true,
-    animatedTime: 360,
+    animatedTime: 260,
     source: {},
-    active: 13,
 };
 
 export const menu = (state = MENUINIT, action) => {
@@ -42,7 +41,7 @@ export const menu = (state = MENUINIT, action) => {
 }
 
 const MAININIT = {
-    ohterSource: {},
+    otherSource: {},
     homeSource: {},
     active: 0,
 };
@@ -50,9 +49,10 @@ const MAININIT = {
 export const main = (state = MAININIT, action) => {
     switch (action.type) {
 
+        // 加载主题/首页
         case 'load-Theme': return {
             ...state,
-            [action.id === 0 ? 'homeSource' : 'ohterSource']: action.data,
+            [action.id === 0 ? 'homeSource' : 'otherSource']: action.data,
             active: action.id,
         }
 

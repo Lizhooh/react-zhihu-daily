@@ -21,16 +21,16 @@ class Main extends Component {
         window.addEventListener('scroll', this.onScroll);
     }
 
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.onScroll);
+    }
+
     onScroll = (event) => {
         event.stopPropagation();
 
-        // if (Scroll.x() + Scroll.h() >= Scroll.H() - 300) {
-        //     // 防止重复加载
-        // }
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.onScroll);
+        if (Scroll.x() + Scroll.h() >= Scroll.H() - 300) {
+            // 防止重复加载
+        }
     }
 
     render() {
@@ -44,12 +44,18 @@ class Main extends Component {
                     <Menu
                         open={menu.open}
                         show={menu.show}
-                        active={menu.active}
+                        active={main.active}
                         onClickModel={event => {
                             props.closeMenu();
                         } }
                         onMenuItemCilck={(event, id) => {
-                            console.log(id);
+                            setTimeout(function () {
+                                props.closeMenu();
+                            }, 0);
+
+                            setTimeout(function () {
+                                props.loadTheme(id);
+                            }, menu.animatedTime);
                         } }
                         // 菜单
                         dataSource={menu.source}
@@ -84,7 +90,6 @@ class Main extends Component {
                                     />
                                 :
                                 <ListView
-                                    date={main.otherSource.date}
                                     dataSource={main.otherSource.stories}
                                     editors={main.otherSource.editors}
                                     onListItemClick={(event, id) => {
