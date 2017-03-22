@@ -1,25 +1,29 @@
 {
-    "name": "zhihu-daily",
-    "version": "0.1.0",
-    "private": true,
-    "author": "Lizhooh <960316408@qq.com>",
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom",
-        "server": "cd server && npm start",
-        "eject": "react-scripts eject"
-    },
-    "devDependencies": {
-        "react-scripts": "0.8.5"
-    },
-    "dependencies": {
-        "react": "^15.4.2",
-        "react-dom": "^15.4.2",
-        "isomorphic-fetch": "^2.2.1"
-    },
-    "engines": {
-        "node": ">= 7.6.0",
-        "npm": ">= 3.0.0"
-    }
+  "name": "zhihu-daily",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Lizhooh <960316408@qq.com>",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "server": "cd server && npm start",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router": "^3.0.0",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "engines": {
+    "node": ">= 7.6.0",
+    "npm": ">= 3.0.0"
+  }
 }
