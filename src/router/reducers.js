@@ -1,7 +1,7 @@
 
 const MENUINIT = {
-    open: true,
-    show: true,
+    open: false,
+    show: false,
     animatedTime: 260,
     source: {},
 };
@@ -40,6 +40,7 @@ export const menu = (state = MENUINIT, action) => {
     }
 }
 
+
 const MAININIT = {
     otherSource: {},
     homeSource: {},
@@ -54,6 +55,51 @@ export const main = (state = MAININIT, action) => {
             ...state,
             [action.id === 0 ? 'homeSource' : 'otherSource']: action.data,
             active: action.id,
+        }
+
+        default: return {
+            ...state,
+        }
+    }
+}
+
+
+const ARTICLEINIT = {
+    open: false,
+    show: false,
+    animatedTime: 360,
+    source: {},
+    active: 0,
+};
+
+export const article = (state = ARTICLEINIT, action) => {
+
+    switch (action.type) {
+        case 'init-Article': return {
+            ...state,
+            source: action.data,
+            active: action.active,
+        }
+
+        case 'open-Article': return {
+            ...state,
+            open: true,
+        }
+
+        case 'close-Article': return {
+            ...state,
+            open: false,
+        }
+
+        case 'show-Article': return {
+            ...state,
+            show: true,
+        }
+
+        case 'hide-Article': return {
+            ...state,
+            source: {},
+            show: false,
         }
 
         default: return {

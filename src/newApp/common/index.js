@@ -3,9 +3,18 @@
 
 // 回到顶部
 export const Scroll = {
-    x: _ => document.documentElement.scrollTop || document.body.scrollTop,          /*滚动条的位置*/
-    h: _ => document.documentElement.clientHeight || document.body.clientHeight,    /*滚动条长度*/
-    H: _ => document.documentElement.scrollHeight || document.body.scrollHeight,    /*滚屏长度*/
+    x: (_ = document) => {  /*滚动条的位置*/
+        if (_ !== document) return _.scrollTop;
+        return _.documentElement.scrollTop || _.body.scrollTop;
+    },
+    h: (_ = document) => { /*滚动条长度*/
+        if (_ !== document) return _.clientHeight;
+        return _.documentElement.clientHeight || _.body.clientHeight;
+    },
+    H: (_ = document) => {  /*滚屏长度*/
+        if (_ !== document) return _.scrollHeight;
+        return _.documentElement.scrollHeight || _.body.scrollHeight;
+    },
     goTop: _ => {
         let stop = 0;
 

@@ -27,7 +27,7 @@ export const closeMenu = () => (dispatch, getState) => {
         dispatch({
             type: 'hide-Menu',
         });
-    }, menu.animatedTime + 30);
+    }, menu.animatedTime);
 }
 
 export const initMenu = () => (dispatch, getState) => {

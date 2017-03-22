@@ -30,6 +30,18 @@ class Main extends Component {
 
         if (Scroll.x() + Scroll.h() >= Scroll.H() - 300) {
             // 防止重复加载
+            console.log("!!");
+        }
+    }
+
+    get title() {
+        const menu = this.props.state.menu;
+        const main = this.props.state.main;
+
+        if(main.active === 0) return '首页';
+        if(menu.source.others) {
+            const d = menu.source.others.filter(i => i.id === main.active).shift();
+            return (d && d.name) || '';
         }
     }
 
@@ -37,6 +49,7 @@ class Main extends Component {
         const props = this.props;
         const menu = props.state.menu;
         const main = props.state.main;
+        const article = props.state.article;
 
         return (
             <div>
@@ -55,7 +68,7 @@ class Main extends Component {
 
                             setTimeout(function () {
                                 props.loadTheme(id);
-                            }, menu.animatedTime);
+                            }, menu.animatedTime + 50);
                         } }
                         // 菜单
                         dataSource={menu.source}
@@ -64,7 +77,7 @@ class Main extends Component {
 
                 <div>
                     <Toolbar
-                        title={'首页'}
+                        title={this.title}
                         iconName={'ion-navicon'}
                         iconSize={35}
                         onLeftButton={event => {
@@ -74,8 +87,8 @@ class Main extends Component {
 
                     <div
                         style={{
-                            // overflow: menu.open === true ? 'hidden' : null,
-                            position: menu.open === true ? 'fixed' : null,
+                            // overflow: menu.open || article.open ? 'hidden' : null,
+                            position: menu.open || article.open ? 'fixed' : null,
                         }}
                         className="main-contanier"
                         >
@@ -85,7 +98,7 @@ class Main extends Component {
                                     date={main.homeSource.date}
                                     dataSource={main.homeSource.stories}
                                     onListItemClick={(event, id) => {
-                                        // this.props.onListItemClick(event, id);
+                                        props.router.push(`/themes/${main.active}/article/${id}`);
                                     } }
                                     />
                                 :
@@ -93,7 +106,7 @@ class Main extends Component {
                                     dataSource={main.otherSource.stories}
                                     editors={main.otherSource.editors}
                                     onListItemClick={(event, id) => {
-                                        // this.props.onListItemClick(event, id);
+                                        props.router.push(`/themes/${main.active}/article/${id}`);
                                     } }
                                     />
 
