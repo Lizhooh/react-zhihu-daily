@@ -58,6 +58,14 @@ router
         res.json(data || {});
     })
 
-    // 顶端评论
+    // 评论
+    .get('/comments/:articleId', async (req, res) => {
+        const id = req.params.articleId;
+        const long = await get(API.longComment + id + '/long-comments');
+        const short = await get(API.longComment + id + '/short-comments');
+
+        res.json({ long: long.comments, short: short.comments } || {});
+    })
+
 
 module.exports = router;
