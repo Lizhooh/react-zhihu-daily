@@ -13,12 +13,12 @@ export default class Slide extends Component {
 
         this.touchDate = {
             start: {
-                pageX: null,
-                pageY: null,
+                pageX: 0,
+                pageY: 0,
             },
             move: {
-                pageX: null,
-                pageY: null,
+                pageX: 0,
+                pageY: 0,
             },
         };
     }

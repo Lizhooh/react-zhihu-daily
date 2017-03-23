@@ -30,17 +30,14 @@ class Article extends Component {
 
     renderView = (article) => (
         <div className="article-body">
-            {
-                // 有些没有标题图片
-                article.source.image &&
-                <div className="title-box">
-                    <img className="title-img" src={article.source.image} alt='' />
-                    <div className="title-shade">
-                        <div className="title-text">{article.source.title}</div>
-                        <div className="title-img-source">{article.source.image_source}</div>
-                    </div>
+
+            <div className="title-box">
+                <img className="title-img" src={article.source.image} alt='' />
+                <div className="title-shade">
+                    <div className="title-text">{article.source.title}</div>
+                    <div className="title-img-source">{article.source.image_source}</div>
                 </div>
-            }
+            </div>
 
             <div
                 className="body"

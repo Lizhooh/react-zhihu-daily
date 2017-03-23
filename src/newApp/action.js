@@ -50,8 +50,35 @@ export const loadTheme = (id) => (dispatch, getState) => {
         'http://localhost:3333/api/theme-type/' + id;
 
     return get(url).then(result => {
-        dispatch({
-            type: 'load-Theme',
+        if (id === 0) {
+            result.list = [{ date: result.date, stories: result.stories }];
+            delete result.stories;
+            delete result.date;
+
+            return dispatch({
+                type: 'load-Theme',
+                data: result,
+                id: id,
+            });
+        }
+        else {
+            return dispatch({
+                type: 'load-Theme',
+                data: result,
+                id: id,
+            });
+        }
+    });
+}
+
+export const loadThemeMore = (id, last) => (dispatch, getState) => {
+    const url = id === 0 ?
+        `http://127.0.0.1:3333/api/latest-more/${last}` :
+        `http://127.0.0.1:3333/api/themes-more/${id}/${last}`;
+
+    return get(url).then(result => {
+        return dispatch({
+            type: 'load-Theme-More',
             data: result,
             id: id,
         });

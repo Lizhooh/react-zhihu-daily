@@ -68,12 +68,14 @@ class Main extends Component {
         const main = this.props.state.main;
         return main.active === 0 ?
             <ListView
+                id={main.active}
                 date={main.homeSource.date}
-                dataSource={main.homeSource.stories}
+                dataSource={main.homeSource.list}
                 onListItemClick={this.openArticle}
                 />
             :
             <ListView
+                id={main.active}
                 dataSource={main.otherSource.stories}
                 editors={main.otherSource.editors}
                 onListItemClick={this.openArticle}
@@ -141,7 +143,19 @@ class Main extends Component {
                     <div
                         className="more"
                         onClick={(event) => {
-                            // this.props.onListMore();
+                            if(main.active === 0) {
+                                const list = main.homeSource.list;
+                                const last = list[list.length - 1].date;
+                                console.log(last);
+                                props.loadThemeMore(main.active, last);
+
+                            }
+                            else {
+                                const stories = main.otherSource.stories;
+                                const last = stories[stories.length - 1].id;
+                                console.log(last);
+                                props.loadThemeMore(main.active, last);
+                            }
                         } }
                         >
                         <span>更多</span>
