@@ -59,21 +59,25 @@ export const main = (state = MAININIT, action) => {
 
         // 加载更多
         case 'load-Theme-More': {
-            if(action.id === 0) return {
+            if (action.id === 0) return {
                 ...state,
                 homeSource: {
                     ...state.homeSource,
-                    list: [...state.homeSource.list, action.data],
+                    list: [
+                        ...state.homeSource.list,
+                        action.data
+                    ],
                 },
             }
-
-            console.log(action.data);
 
             return {
                 ...state,
                 otherSource: {
                     ...state.otherSource,
-                    stories: [...state.otherSource.stories, ...action.data.stories],
+                    stories: [
+                        ...state.otherSource.stories,
+                        ...action.data.stories
+                    ],
                 },
             }
         }

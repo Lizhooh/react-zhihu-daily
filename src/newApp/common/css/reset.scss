@@ -233,20 +233,20 @@ dfn,
 
 
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 0;
+    height: 0;
 }
 ::-webkit-scrollbar-track-piece {
     background-color: transparent;
-    border-radius: 5px;
+    border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:vertical {
-    height: 5px;
+    height: 0;
     background-color: rgba(1, 1, 1, 0.18);
-    border-radius: 5px;
+    border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:horizontal {
-    width: 5px;
+    width: 0;
     background-color: rgba(1, 1, 1, 0.18);
-    border-radius: 5px;
+    border-radius: 0;
 }
