@@ -7,6 +7,7 @@ import * as action from './action';
 import Toolbar from './toolbar';
 import Menu from './menu';
 import ListView from './listView';
+import Slide from './Slide';
 import { Scroll } from './common';
 
 class Main extends Component {
@@ -32,7 +33,7 @@ class Main extends Component {
             // 防止重复加载
             console.log("!!");
         }
-    }
+    };
 
     get title() {
         const menu = this.props.state.menu;
@@ -43,7 +44,41 @@ class Main extends Component {
             const d = menu.source.others.filter(i => i.id === main.active).shift();
             return (d && d.name) || '';
         }
-    }
+    };
+
+    get slideData() {
+        const main = this.props.state.main;
+        return main.active === 0 ?
+            // 首页
+            main.homeSource.top_stories :
+            // 非首页
+            [{
+                title: main.otherSource.description,
+                image: main.otherSource.background,
+                id: main.otherSource.id,
+            }]
+    };
+
+    openArticle = (event, id) => {
+        const main = this.props.state.main;
+        this.props.router.push(`/themes/${main.active}/article/${id}`);
+    };
+
+    renderList = () => {
+        const main = this.props.state.main;
+        return main.active === 0 ?
+            <ListView
+                date={main.homeSource.date}
+                dataSource={main.homeSource.stories}
+                onListItemClick={this.openArticle}
+                />
+            :
+            <ListView
+                dataSource={main.otherSource.stories}
+                editors={main.otherSource.editors}
+                onListItemClick={this.openArticle}
+                />
+    };
 
     render() {
         const props = this.props;
@@ -65,7 +100,6 @@ class Main extends Component {
                             setTimeout(function () {
                                 props.closeMenu();
                             }, 0);
-
                             setTimeout(function () {
                                 props.loadTheme(id);
                             }, menu.animatedTime + 50);
@@ -92,25 +126,16 @@ class Main extends Component {
                         }}
                         className="main"
                         >
-                        {
-                            main.active === 0 ?
-                                <ListView
-                                    date={main.homeSource.date}
-                                    dataSource={main.homeSource.stories}
-                                    onListItemClick={(event, id) => {
-                                        props.router.push(`/themes/${main.active}/article/${id}`);
-                                    } }
-                                    />
-                                :
-                                <ListView
-                                    dataSource={main.otherSource.stories}
-                                    editors={main.otherSource.editors}
-                                    onListItemClick={(event, id) => {
-                                        props.router.push(`/themes/${main.active}/article/${id}`);
-                                    } }
-                                    />
 
-                        }
+                        <Slide
+                            // 轮播图
+                            slideTime={5000}
+                            slideAnimatedTime={400}
+                            slidePlay={main.active === 0}
+                            dataSource={this.slideData}
+                            onListItemClick={this.openArticle}
+                            />
+                        {this.renderList()}
                     </div>
 
                     <div

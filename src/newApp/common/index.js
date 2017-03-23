@@ -1,21 +1,21 @@
 
 
-
-// 回到顶部
 export const Scroll = {
-    x: (_ = document) => {  /*滚动条的位置*/
-        if (_ !== document) return _.scrollTop;
-        return _.documentElement.scrollTop || _.body.scrollTop;
+    x: (who = document) => {  /*滚动条的位置*/
+        if (who !== document) return who.scrollTop;
+        return who.documentElement.scrollTop || who.body.scrollTop;
     },
-    h: (_ = document) => { /*滚动条长度*/
-        if (_ !== document) return _.clientHeight;
-        return _.documentElement.clientHeight || _.body.clientHeight;
+    h: (who = document) => {  /*滚动条长度*/
+        if (who !== document) return who.clientHeight;
+        return who.documentElement.clientHeight || who.body.clientHeight;
     },
-    H: (_ = document) => {  /*滚屏长度*/
-        if (_ !== document) return _.scrollHeight;
-        return _.documentElement.scrollHeight || _.body.scrollHeight;
+    H: (who = document) => {  /*滚屏长度*/
+        if (who !== document) return who.scrollHeight;
+        return who.documentElement.scrollHeight || who.body.scrollHeight;
     },
-    goTop: _ => {
+
+    // 回到顶部
+    goTop: (who = document) => {
         let stop = 0;
 
         window.requestAnimationFrame = (cb) => {
@@ -23,11 +23,9 @@ export const Scroll = {
         }
 
         const render = () => {
-            const x = Scroll.x();
-            const H = Scroll.H();
-            if (x <= 5) {
-                stop = 1;
-            };
+            const x = Scroll.x(who);
+            const H = Scroll.H(who);
+            if (x <= 5) stop = 1;
 
             // 设置最少限制值
             const move = x - Math.max(x / (H * 0.05), 80);
@@ -35,7 +33,7 @@ export const Scroll = {
         }
 
         (function animloop() {
-            !stop && requestAnimationFrame(animloop);
+            !stop && window.requestAnimationFrame(animloop);
             render();
         })();
     },

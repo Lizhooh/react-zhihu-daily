@@ -9,7 +9,7 @@ export default ({
     drawerColor         = '#fff',
     drawerShadeColor    = 'rgba(1, 1, 1, 0.35)',
     drawerZindex        = 1000,
-    drawerOnClickModel  = () => { },
+    drawerOnClickModel  = _ => { },
     open                = false,
     show                = false,
     active              = 0,

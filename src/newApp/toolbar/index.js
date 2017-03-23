@@ -1,7 +1,14 @@
 import './css/style.css';
 import React from 'react';
 
-export default ({title = '首页', iconName = '', iconSize = 25, style, onLeftButton, onRightButton}) => (
+export default ({
+    title         = '首页',
+    iconName      = '',
+    iconSize      = 25,
+    style         = null,
+    onLeftButton  = _ => { },
+    onRightButton = _ => { },
+}) => (
     <div className="toolbar-contanier" style={style}>
         <div className="left">
             <div className="left-button" onClick={onLeftButton}>

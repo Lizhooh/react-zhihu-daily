@@ -5,7 +5,7 @@ export default ({
     date            = '',
     dataSource      = [],
     editors         = '',
-    onListItemClick = () => { }
+    onListItemClick = _ => { }
 }) => {
 
     const getTitle = (dates) => {
