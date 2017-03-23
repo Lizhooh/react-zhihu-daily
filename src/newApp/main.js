@@ -117,7 +117,7 @@ class Main extends Component {
                         title={this.title}
                         iconLeftName={'menu'}
                         iconRightName={'more_vert'}
-                        iconSize={33}
+                        iconSize={29}
                         onLeftButton={event => {
                             props.openMenu();
                         } }

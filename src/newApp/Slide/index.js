@@ -123,7 +123,7 @@ export default class Slide extends Component {
                                 className=""
                                 key={`slide-${index}`}
                                 >
-                                <img src={image} alt="" />
+                                <div style={{ background: `url(${image}) center center` }} />
                             </li>
                         ))
                     }

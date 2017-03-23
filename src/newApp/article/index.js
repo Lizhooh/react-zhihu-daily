@@ -35,10 +35,11 @@ class Article extends Component {
             {
                 article.source.image &&
                 <div className="title-box">
-                    <img
+                    <div
                         className="title-img"
-                        src={article.source.image}
-                        alt=''
+                        style={{
+                            background: `url(${article.source.image}) center center`
+                        }}
                         />
                     <div className="title-shade">
                         <div className="title-text">{article.source.title}</div>
@@ -87,7 +88,7 @@ class Article extends Component {
                             title=""
                             iconLeftName={'arrow_back'}
                             iconRightName={'favorite_border'}
-                            iconSize={33}
+                            iconSize={29}
                             onLeftButton={(event) => {
                                 props.closeArticle();
 
