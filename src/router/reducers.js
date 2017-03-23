@@ -95,6 +95,11 @@ const ARTICLEINIT = {
     animatedTime: 360,
     source: {},
     active: 0,
+    comment: {
+        open: false,
+        show: false,
+        source: {},
+    },
 };
 
 export const article = (state = ARTICLEINIT, action) => {
@@ -125,6 +130,47 @@ export const article = (state = ARTICLEINIT, action) => {
             ...state,
             source: {},
             show: false,
+        }
+
+        case 'init-Comment': return {
+            ...state,
+            comment: {
+                ...state.comment,
+                source: action.data,
+            },
+        }
+
+        case 'open-Comment': return {
+            ...state,
+            comment: {
+                ...state.comment,
+                open: true,
+            },
+        }
+
+        case 'close-Comment': return {
+            ...state,
+            comment: {
+                ...state.comment,
+                open: false,
+            },
+        }
+
+        case 'show-Comment': return {
+            ...state,
+            comment: {
+                ...state.comment,
+                show: true,
+            },
+        }
+
+        case 'hide-Comment': return {
+            ...state,
+            comment: {
+                ...state.comment,
+                source: {},
+                show: false,
+            },
         }
 
         default: return {

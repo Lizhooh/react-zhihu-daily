@@ -151,13 +151,11 @@ class Main extends Component {
                             if (main.active === 0) {
                                 const list = main.homeSource.list;
                                 const last = list[list.length - 1].date;
-                                console.log(last);
                                 props.loadThemeMore(main.active, last);
                             }
                             else {
                                 const stories = main.otherSource.stories;
                                 const last = stories[stories.length - 1].id;
-                                console.log(last);
                                 props.loadThemeMore(main.active, last);
                             }
                         } }

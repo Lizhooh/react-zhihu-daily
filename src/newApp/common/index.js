@@ -1,4 +1,7 @@
 
+/**
+ * 公共的工具函数
+ */
 
 export const Scroll = {
     x: (who = document) => {  /*滚动条的位置*/

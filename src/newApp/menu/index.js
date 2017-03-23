@@ -37,7 +37,8 @@ export default (props) => {
                                 props.onMenuItemCilck(event, 0);
                             } }
                             >
-                            首页
+                            <i className="material-icons">home</i>
+                            <span>首页</span>
                         </header>
 
                         <ul className="list-body">{

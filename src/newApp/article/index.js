@@ -65,10 +65,12 @@ class Article extends Component {
     render() {
         const props = this.props;
         const article = props.article;
+        const comment = article.source.comment || {};
+        const params = props.params;
 
         return (
             <div className='article-contanier'
-                onScroll={this.onScroll}
+                // onScroll={this.onScroll}
                 >
                 <Drawer
                     open={article.open}
@@ -86,21 +88,25 @@ class Article extends Component {
                         <Toolbar
                             style={{ opacity: 1 }}
                             iconLeftName={'arrow_back'}
+                            // 图标组
                             iconRightName={[
                                 { name: 'share' },
                                 { name: 'star' },
-                                { name: 'comment', text: 20 },
-                                { name: 'thumb_up', text: 30 },
+                                { name: 'comment', text: comment.comments },
+                                { name: 'thumb_up', text: comment.popularity },
                             ]}
                             iconSize={29}
                             onLeftButton={event => {
                                 props.closeArticle();
                                 setTimeout(() => {
-                                    props.router.push(`/themes/${props.params.id}`);
+                                    // 回去吧
+                                    props.router.push(`/themes/${params.id}`);
                                 }, article.animatedTime + 50);
                             } }
                             onRightButton={(event, index) => {
-
+                                if (index === 2) {
+                                    props.router.push(`/themes/${params.id}/article/${params.aid}/comment/${comment.comments}`);
+                                }
                             } }
                             />
                         {
@@ -110,6 +116,8 @@ class Article extends Component {
                         }
                     </div>
                 </Drawer>
+
+                {props.children}
             </div>
         );
     }

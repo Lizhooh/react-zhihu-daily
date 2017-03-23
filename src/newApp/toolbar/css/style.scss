@@ -25,7 +25,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
-        padding-bottom: 3px;
+        padding-top: 2px;
 
         .left-button {
             width: 30px;
@@ -45,6 +45,8 @@
         .title {
             font-size: 18px;
             line-height: 30px;
+            position: relative;
+            top: -1px;
         }
     }
 
@@ -54,7 +56,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: flex-end;
-        padding-bottom: 3px;
+        padding-top: 2px;
 
         .right-button {
             // width: 30px;
