@@ -3,7 +3,7 @@
 .toolbar-contanier {
     padding: 0;
     margin: 0;
-    height: 55px;
+    height: 60px;
     position: fixed;
     top: 0; right: 0; left: 0;
     background-color: $theme-color;
@@ -55,6 +55,17 @@
         align-items: center;
         justify-content: flex-end;
         padding-bottom: 3px;
+
+        .right-button {
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border-radius: 3px;
+            margin: 0 10px 0 15px;
+            color: #fff;
+            font-size: 35px;
+            line-height: 30px;
+        }
     }
 }
 

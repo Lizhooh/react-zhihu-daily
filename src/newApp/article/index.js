@@ -20,6 +20,7 @@ class Article extends Component {
 
     onScroll = (event) => {
         event.stopPropagation();
+        event.preventDefault();
         const self = event.target;
 
         if (Scroll.x(self) + Scroll.h(self) >= Scroll.H(self) - 300) {
@@ -84,8 +85,9 @@ class Article extends Component {
                         <Toolbar
                             style={{ opacity: 1 }}
                             title=""
-                            iconName={'ion-ios-arrow-back'}
-                            iconSize={35}
+                            iconLeftName={'arrow_back'}
+                            iconRightName={'favorite_border'}
+                            iconSize={33}
                             onLeftButton={(event) => {
                                 props.closeArticle();
 

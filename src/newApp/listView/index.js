@@ -2,11 +2,12 @@ import './css/style.css';
 import React from 'react';
 
 export default ({
-    date = '',
-    dataSource = [],
-    editors = '',
-    id = 0,
-    onListItemClick = _ => { }
+    date            = '',
+    dataSource      = [],
+    editors         = '',
+    id              = 0,
+    onListItemClick = _ => { },
+    style           = null
 }) => {
 
     const getTitle = (dates) => {
@@ -103,7 +104,7 @@ export default ({
 
     return (
         dataSource.length !== 0 &&
-        <div className="listview-contanier">
+        <div className="listview-contanier" style={style}>
             {id === 0 ? renderHome() : renderHOther()}
         </div>
     );

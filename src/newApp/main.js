@@ -66,6 +66,7 @@ class Main extends Component {
 
     renderList = () => {
         const main = this.props.state.main;
+
         return main.active === 0 ?
             <ListView
                 id={main.active}
@@ -114,8 +115,9 @@ class Main extends Component {
                 <div className="main-contanier">
                     <Toolbar
                         title={this.title}
-                        iconName={'ion-navicon'}
-                        iconSize={35}
+                        iconLeftName={'menu'}
+                        iconRightName={'more_vert'}
+                        iconSize={33}
                         onLeftButton={event => {
                             props.openMenu();
                         } }
@@ -143,12 +145,11 @@ class Main extends Component {
                     <div
                         className="more"
                         onClick={(event) => {
-                            if(main.active === 0) {
+                            if (main.active === 0) {
                                 const list = main.homeSource.list;
                                 const last = list[list.length - 1].date;
                                 console.log(last);
                                 props.loadThemeMore(main.active, last);
-
                             }
                             else {
                                 const stories = main.otherSource.stories;
