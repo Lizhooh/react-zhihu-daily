@@ -77,6 +77,11 @@
             background-color: rgba(1, 1, 1, 0.06);
             color: rgba(30, 165, 255, 1);
             padding: 15px 20px;
+            display: flex;
+
+            > span {
+                margin: 1px 10px 2px;
+            }
         }
 
         .list-body {
