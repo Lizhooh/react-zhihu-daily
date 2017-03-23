@@ -53,9 +53,11 @@ router
     .get('/article/:articleId', async (req, res) => {
         const id = req.params.articleId;
         const data = await get(API.article + id);
+        const comment = await get(API.storyExtra + id);
+        data.comment = comment;
         res.json(data || {});
     })
 
-    ;
+    // 顶端评论
 
 module.exports = router;

@@ -10,6 +10,7 @@ var API = {
     themes:     PRO + '://news-at.zhihu.com/api/' + VERSION + '/themes',
     themesMore: PRO + '://news-at.zhihu.com/api/' + VERSION + '/theme/',
     article:    PRO + '://news-at.zhihu.com/api/' + VERSION + '/story/',
+    storyExtra: PRO + '://news-at.zhihu.com/api/' + VERSION + '/story-extra/',
 };
 
 module.exports = API;
