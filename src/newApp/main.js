@@ -121,6 +121,9 @@ class Main extends Component {
                         onLeftButton={event => {
                             props.openMenu();
                         } }
+                        onRightButton={event => {
+                            this.props.router.push(`/themes/${main.active}/popup`);
+                        } }
                         />
 
                     <div

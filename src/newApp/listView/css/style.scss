@@ -12,13 +12,13 @@
 
     .list-title {
         color: #666;
-        margin: 30px 0 0;
+        margin: 20px 0 0;
     }
 
     .item {
         padding: 10px;
         background-color: #fff;
-        box-shadow: 1px 2px 3px #ccc;
+        box-shadow: 1px 2px 3px #ddd;
         margin: 20px 0;
         min-height: 60px;
 
@@ -74,6 +74,9 @@
     .title {
         flex: 1;
         padding: 0 10px 0 5px;
+        text-shadow: 0 1px 2px #bbb;
+        line-height: 1.55;
+        color: #444;
     }
 
     .min-image {
