@@ -85,16 +85,22 @@ class Article extends Component {
 
                         <Toolbar
                             style={{ opacity: 1 }}
-                            title=""
                             iconLeftName={'arrow_back'}
-                            iconRightName={'favorite_border'}
+                            iconRightName={[
+                                { name: 'share' },
+                                { name: 'star' },
+                                { name: 'comment', text: 20 },
+                                { name: 'thumb_up', text: 30 },
+                            ]}
                             iconSize={29}
-                            onLeftButton={(event) => {
+                            onLeftButton={event => {
                                 props.closeArticle();
-
                                 setTimeout(() => {
                                     props.router.push(`/themes/${props.params.id}`);
                                 }, article.animatedTime + 50);
+                            } }
+                            onRightButton={(event, index) => {
+
                             } }
                             />
                         {

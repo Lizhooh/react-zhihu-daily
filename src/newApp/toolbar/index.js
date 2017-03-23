@@ -2,35 +2,50 @@ import './css/style.css';
 import React from 'react';
 
 export default ({
-    title         = '首页',
-    iconLeftName  = '',
+    title = '',
+    iconLeftName = '',
     iconRightName = '',
-    iconSize      = 25,
-    style         = null,
-    onLeftButton  = _ => { },
+    iconSize = 25,
+    style = null,
+    onLeftButton = _ => { },
     onRightButton = _ => { },
-}) => (
-    <div className="toolbar-contanier" style={style}>
-        <div className="left">
-            <div className="left-button" onClick={onLeftButton}>
-                <i
-                    className="material-icons"
-                    style={{ fontSize: iconSize }}
-                    >
-                    {iconLeftName}
-                </i>
+}) => {
+
+    iconRightName = Array.isArray(iconRightName) ? iconRightName : [{ name: iconRightName }];
+
+    return (
+        <div className="toolbar-contanier" style={style}>
+            <div className="left">
+                <div className="left-button" onClick={onLeftButton}>
+                    <i
+                        className="material-icons"
+                        style={{ fontSize: iconSize }}
+                        >
+                        {iconLeftName}
+                    </i>
+                </div>
+                <span className="title">{title}</span>
             </div>
-            <span className="title">{title}</span>
-        </div>
-        <div className="right">
-            <div className="right-button" onClick={onRightButton}>
-                <i
-                    className="material-icons"
-                    style={{ fontSize: iconSize }}
-                    >
-                    {iconRightName}
-                </i>
+            <div className="right">
+                <div className="right-button">
+                    {
+                        iconRightName.map((i, index) => (
+                            <span key={`icon-right-${index}`}>
+                                <i
+                                    onClick={(event) => onRightButton(event, index)}
+                                    className="material-icons"
+                                    style={{ fontSize: iconSize }}
+                                    >
+                                    {i.name}
+                                </i>
+                                <span>{i.text}</span>
+                            </span>
+                        ))
+                    }
+                </div>
             </div>
         </div>
-    </div>
-);
+    );
+}
+
+
