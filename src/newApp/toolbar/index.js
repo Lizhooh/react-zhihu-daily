@@ -30,9 +30,11 @@ export default ({
                 <div className="right-button">
                     {
                         iconRightName.map((i, index) => (
-                            <span key={`icon-right-${index}`}>
+                            <span
+                                key={`icon-right-${index}`}
+                                onClick={(event) => onRightButton(event, index)}
+                                >
                                 <i
-                                    onClick={(event) => onRightButton(event, index)}
                                     className="material-icons"
                                     style={{ fontSize: iconSize }}
                                     >

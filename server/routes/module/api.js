@@ -3,7 +3,7 @@ var VERSION = 4;
 var PRO = 'http'
 
 var API = {
-    startImage:    PRO + '://news-at.zhihu.com/api/' + VERSION + '/start-image/720*1280',
+    startImage:    'https://news-at.zhihu.com/api/7/prefetch-launch-images/720*1112',
     themeType:     PRO + '://news-at.zhihu.com/api/' + VERSION + '/theme/',
     latest:        PRO + '://news-at.zhihu.com/api/' + VERSION + '/stories/latest',
     latestMore:    PRO + '://news-at.zhihu.com/api/' + VERSION + '/stories/before/',

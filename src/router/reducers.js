@@ -1,8 +1,33 @@
 
+const STARTINIT = {
+    loading: true,
+    stop: false,
+};
+
+export const start = (start = STARTINIT, action) => {
+    switch(action.type) {
+
+        case 'init-start': return {
+            ...start,
+            ...action.data,
+            loading: false,
+        }
+
+        case 'start-end': return {
+            ...start,
+            stop: true,
+        }
+
+        default: return {
+            ...start,
+        }
+    }
+}
+
 const MENUINIT = {
     open: false,
     show: false,
-    animatedTime: 260,
+    animatedTime: 240,
     source: {},
 };
 
@@ -39,7 +64,6 @@ export const menu = (state = MENUINIT, action) => {
         }
     }
 }
-
 
 const MAININIT = {
     otherSource: {},
@@ -92,7 +116,7 @@ export const main = (state = MAININIT, action) => {
 const ARTICLEINIT = {
     open: false,
     show: false,
-    animatedTime: 360,
+    animatedTime: 300,
     source: {},
     active: 0,
     comment: {

@@ -69,19 +69,17 @@ class Article extends Component {
         const params = props.params;
 
         return (
-            <div className='article-contanier'
-                // onScroll={this.onScroll}
-                >
+            <div className='article-contanier'>
                 <Drawer
                     open={article.open}
                     show={article.show}
                     drawerSize={'100%'}
-                    drawerMaxSize={'100%'}
+                    drawerMaxSize={480}
                     drawerAnimatedTime={article.animatedTime}
                     drawerPosition={'right'}
                     drawerColor={'rgba(255, 255, 255, 1)'}
                     drawerShadeColor={'rgba(1, 1, 1, 0.45)'}
-                    drawerOnClickModel={props.onClickModel}
+                    drawerOnClickModel={null}
                     >
                     <div className="article">
 

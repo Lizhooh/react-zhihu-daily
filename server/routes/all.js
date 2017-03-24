@@ -15,7 +15,7 @@ router
     // 启动图
     .get('/start-image', async (req, res) => {
         const data = await get(API.startImage);
-        res.json(data || { "url": "", "text": "" });
+        res.json(data || {});
     })
 
     // 首页

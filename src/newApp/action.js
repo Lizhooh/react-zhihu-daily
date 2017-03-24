@@ -4,6 +4,19 @@ const get = (url) => fetch(url)
     .then(res => res.json())
     .catch(err => console.log(err));
 
+export const initStart = () => (dispatch, getState) => {
+    return get('http://127.0.0.1:3333/api/start-image').then(result => {
+        dispatch({
+            type: 'init-start',
+            data: result.creatives[0],
+        });
+    });
+}
+
+export const startEnd = () => ({
+    type: 'start-end',
+})
+
 export const openMenu = () => (dispatch, getState) => {
     dispatch({
         type: 'show-Menu',
@@ -14,7 +27,7 @@ export const openMenu = () => (dispatch, getState) => {
             type: 'open-Menu'
         })
     }, 50);
-};
+}
 
 export const closeMenu = () => (dispatch, getState) => {
     const { menu } = getState();

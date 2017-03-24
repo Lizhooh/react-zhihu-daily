@@ -7,33 +7,18 @@ import * as action from './action';
 import Toolbar from './toolbar';
 import Menu from './menu';
 import ListView from './listView';
-import Slide from './Slide';
-import { Scroll } from './common';
+import Slide from './slide';
+import Start from './start';
 
 class Main extends Component {
 
     componentWillMount() {
         Promise.all([
+            this.props.initStart(),
             this.props.initMenu(),
             this.props.loadTheme(0),
         ]);
-
-        // 监听滚动条, 加载更多，回到顶部
-        window.addEventListener('scroll', this.onScroll);
     }
-
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.onScroll);
-    }
-
-    onScroll = (event) => {
-        event.stopPropagation();
-
-        if (Scroll.x() + Scroll.h() >= Scroll.H() - 300) {
-            // 防止重复加载
-            console.log("!!");
-        }
-    };
 
     get title() {
         const menu = this.props.state.menu;
@@ -83,87 +68,107 @@ class Main extends Component {
                 />
     };
 
+    componentDidMount() {
+        setTimeout(() => {
+            this.props.startEnd();
+        }, 5 * 1000);
+    }
+
     render() {
         const props = this.props;
         const menu = props.state.menu;
         const main = props.state.main;
         const article = props.state.article;
+        const start = props.state.start;
 
         return (
             <div>
-                <div>
-                    <Menu
-                        open={menu.open}
-                        show={menu.show}
-                        active={main.active}
-                        onClickModel={event => {
-                            props.closeMenu();
-                        } }
-                        onMenuItemCilck={(event, id) => {
-                            setTimeout(function () {
-                                props.closeMenu();
-                            }, 0);
-                            setTimeout(function () {
-                                props.loadTheme(id);
-                            }, menu.animatedTime + 50);
-                        } }
-                        // 菜单
-                        dataSource={menu.source}
-                        />
-                </div>
-
-                <div className="main-contanier">
-                    <Toolbar
-                        title={this.title}
-                        iconLeftName={'menu'}
-                        iconRightName={'more_vert'}
-                        iconSize={29}
-                        onLeftButton={event => {
-                            props.openMenu();
-                        } }
-                        onRightButton={event => {
-                            this.props.router.push(`/themes/${main.active}/popup`);
-                        } }
-                        />
-
-                    <div
-                        style={{
-                            // overflow: menu.open || article.open ? 'hidden' : null,
-                            position: menu.open || article.open ? 'fixed' : null,
-                        }}
-                        className="main"
-                        >
-
-                        <Slide
-                            // 轮播图
-                            slideTime={5000}
-                            slideAnimatedTime={400}
-                            slidePlay={main.active === 0}
-                            dataSource={this.slideData}
-                            onListItemClick={this.openArticle}
-                            />
-                        {this.renderList()}
+                {
+                    start.stop === false &&
+                    <div>
+                        <Start url={start.url} />
                     </div>
+                }
 
-                    <div
-                        className="more"
-                        onClick={(event) => {
-                            if (main.active === 0) {
-                                const list = main.homeSource.list;
-                                const last = list[list.length - 1].date;
-                                props.loadThemeMore(main.active, last);
-                            }
-                            else {
-                                const stories = main.otherSource.stories;
-                                const last = stories[stories.length - 1].id;
-                                props.loadThemeMore(main.active, last);
-                            }
-                        } }
-                        >
-                        <span>更多</span>
+                {
+                    start.loading === false &&
+                    <div>
+
+                        <div>
+                            <Menu
+                                open={menu.open}
+                                show={menu.show}
+                                active={main.active}
+                                onClickModel={event => {
+                                    props.closeMenu();
+                                } }
+                                onMenuItemCilck={(event, id) => {
+                                    setTimeout(function () {
+                                        props.closeMenu();
+                                    }, 0);
+                                    setTimeout(function () {
+                                        props.loadTheme(id);
+                                    }, menu.animatedTime + 50);
+                                } }
+                                // 菜单
+                                dataSource={menu.source}
+                                />
+                        </div>
+
+                        <div className="main-contanier">
+                            <Toolbar
+                                title={this.title}
+                                iconLeftName={'menu'}
+                                iconRightName={'more_vert'}
+                                iconSize={29}
+                                onLeftButton={event => {
+                                    props.openMenu();
+                                } }
+                                onRightButton={event => {
+                                    this.props.router.push(`/themes/${main.active}/popup`);
+                                } }
+                                />
+
+                            <div
+                                style={{
+                                    // overflow: menu.open || article.open ? 'hidden' : null,
+                                    position: menu.open || article.open ? 'fixed' : null,
+                                }}
+                                className="main"
+                                >
+
+                                <Slide
+                                    // 轮播图
+                                    slideTime={5000}
+                                    slideAnimatedTime={400}
+                                    slidePlay={main.active === 0}
+                                    dataSource={this.slideData}
+                                    onListItemClick={this.openArticle}
+                                    />
+                                {this.renderList()}
+                            </div>
+
+                            <div
+                                className="more"
+                                onClick={(event) => {
+                                    if (main.active === 0) {
+                                        const list = main.homeSource.list;
+                                        const last = list[list.length - 1].date;
+                                        props.loadThemeMore(main.active, last);
+                                    }
+                                    else {
+                                        const stories = main.otherSource.stories;
+                                        const last = stories[stories.length - 1].id;
+                                        props.loadThemeMore(main.active, last);
+                                    }
+                                } }
+                                >
+                                <span>更多</span>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-
+                }
                 {props.children}
             </div>
         );

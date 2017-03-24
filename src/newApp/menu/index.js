@@ -3,7 +3,6 @@ import React from 'react';
 import Drawer from '../drawer/index';
 
 export default (props) => {
-
     return (
         <div>
             <Drawer
