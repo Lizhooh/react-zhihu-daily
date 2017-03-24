@@ -14,6 +14,9 @@
     overflow: hidden;
     transition: all 0.45s ease-in-out;
     transform: translate3d(0, 0, 0);
+    -webkit-transform: translateZ(0);
+    opacity: 1;
+    will-change: transform;
 
     > .menu {
         background-color: #fff;

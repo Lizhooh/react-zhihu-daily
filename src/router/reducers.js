@@ -112,7 +112,6 @@ export const main = (state = MAININIT, action) => {
     }
 }
 
-
 const ARTICLEINIT = {
     open: false,
     show: false,

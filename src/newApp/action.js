@@ -44,7 +44,7 @@ export const closeMenu = () => (dispatch, getState) => {
 }
 
 export const initMenu = () => (dispatch, getState) => {
-    return get('http://localhost:3333/api/themes/').then(result => {
+    return get('http://127.0.0.1:3333/api/themes/').then(result => {
         dispatch({
             type: 'init-Menu',
             data: result,
@@ -59,8 +59,8 @@ export const changMenuSelect = (id) => ({
 
 export const loadTheme = (id) => (dispatch, getState) => {
     const url = id === 0 ?
-        'http://localhost:3333/api/latest/' :
-        'http://localhost:3333/api/theme-type/' + id;
+        'http://127.0.0.1:3333/api/latest/' :
+        'http://127.0.0.1:3333/api/theme-type/' + id;
 
     return get(url).then(result => {
         if (id === 0) {
