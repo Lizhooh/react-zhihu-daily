@@ -3,12 +3,13 @@
 
 ![](/resource/demo.gif)
 
-## 要点
-基于 React.js，WebPack 的组件开发
-基于 CSS3 动画，Flexbox 布局
-基于 Node.js 的后端 API 服务
+### 要点
+- 基于 React.js，WebPack 的组件开发
+- 基于 CSS3 动画，Flexbox 布局
+- 基于 Node.js 的后端 API 服务
 
-## Use
+
+### install
 
 ``` bash
 # install dependencies
@@ -17,10 +18,14 @@ npm install
 # before, run nodejs server
 cd ./server
 npm install
-npm start
+```
 
-# after
-cd ../
+
+### Use
+
+```bash
+# run server
+npm run server
 
 # serve with hot reload at localhost:3000
 npm start
