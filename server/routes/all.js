@@ -31,14 +31,8 @@ router
     })
 
     // 主题
-    .get('/themes', async (req, res) => {
+    .get('/theme', async (req, res) => {
         const data = await get(API.themes);
-        res.json(data || {});
-    })
-
-    // 主题更多
-    .get('/themes-more/:id/:storyid', async (req, res) => {
-        const data = await get(API.themesMore + `${req.params.id}/before/${req.params.storyid}`);
         res.json(data || {});
     })
 
@@ -46,6 +40,12 @@ router
     .get('/theme-type/:themeId', async (req, res) => {
         const id = req.params.themeId;
         const data = await get(API.themeType + id);
+        res.json(data || {});
+    })
+
+    // 主题列表更多
+    .get('/theme-type-more/:id/:storyid', async (req, res) => {
+        const data = await get(API.themesMore + `${req.params.id}/before/${req.params.storyid}`);
         res.json(data || {});
     })
 

@@ -44,7 +44,7 @@ export const closeMenu = () => (dispatch, getState) => {
 }
 
 export const initMenu = () => (dispatch, getState) => {
-    return get('http://127.0.0.1:3333/api/themes/').then(result => {
+    return get('http://127.0.0.1:3333/api/theme/').then(result => {
         dispatch({
             type: 'init-Menu',
             data: result,
@@ -87,7 +87,7 @@ export const loadTheme = (id) => (dispatch, getState) => {
 export const loadThemeMore = (id, last) => (dispatch, getState) => {
     const url = id === 0 ?
         `http://127.0.0.1:3333/api/latest-more/${last}` :
-        `http://127.0.0.1:3333/api/themes-more/${id}/${last}`;
+        `http://127.0.0.1:3333/api/theme-type-more/${id}/${last}`;
 
     return get(url).then(result => {
         return dispatch({
