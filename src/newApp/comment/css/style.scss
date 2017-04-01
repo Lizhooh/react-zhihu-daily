@@ -37,6 +37,7 @@
         margin: 15px 0;
         width: 100%;
         height: auto;
+        box-sizing: border-box;
 
         &::after {
             display: table;
