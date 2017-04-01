@@ -80,6 +80,13 @@ class Article extends Component {
                     drawerColor={'rgba(255, 255, 255, 1)'}
                     drawerShadeColor={'rgba(1, 1, 1, 0.45)'}
                     drawerOnClickModel={null}
+                    drawerOnClickModel={event => {
+                        props.closeArticle();
+                        setTimeout(() => {
+                            // 回去吧
+                            props.router.push(`/themes/${params.id}`);
+                        }, article.animatedTime + 50);
+                    } }
                     >
                     <div className="article">
 

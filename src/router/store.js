@@ -16,6 +16,7 @@ const devtool = (open) => (
     window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+// 中间件
 const middleware = () => {
     return hasReduxTool ?
         compose(applyMiddleware(thunk), devtool(true)) :
