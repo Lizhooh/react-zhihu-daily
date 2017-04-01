@@ -8,7 +8,7 @@ export const initStart = () => (dispatch, getState) => {
     return get('http://127.0.0.1:3333/api/start-image').then(result => {
         dispatch({
             type: 'init-start',
-            data: result.creatives[0],
+            data: result.creatives[0] || { url: require('./start/img/bg.jpg') } ,
         });
     });
 }
