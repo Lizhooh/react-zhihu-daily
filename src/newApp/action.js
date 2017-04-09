@@ -5,10 +5,10 @@ const get = (url) => fetch(url)
     .catch(err => console.log(err));
 
 export const initStart = () => (dispatch, getState) => {
-    return get('http://127.0.0.1:3333/api/start-image').then(result => {
+    return get('http://112.74.109.22:3000/zhihu-daily/api/start-image').then(result => {
         dispatch({
             type: 'init-start',
-            data: result.creatives[0] || { url: require('./start/img/bg.jpg') } ,
+            data: result.creatives[0] || { url: 'http://112.74.109.22/bg.jpg' } ,
         });
     });
 }
@@ -44,7 +44,7 @@ export const closeMenu = () => (dispatch, getState) => {
 }
 
 export const initMenu = () => (dispatch, getState) => {
-    return get('http://127.0.0.1:3333/api/theme/').then(result => {
+    return get('http://112.74.109.22:3000/zhihu-daily/api/theme/').then(result => {
         dispatch({
             type: 'init-Menu',
             data: result,
@@ -59,8 +59,8 @@ export const changMenuSelect = (id) => ({
 
 export const loadTheme = (id) => (dispatch, getState) => {
     const url = id === 0 ?
-        'http://127.0.0.1:3333/api/latest/' :
-        'http://127.0.0.1:3333/api/theme-type/' + id;
+        'http://112.74.109.22:3000/zhihu-daily/api/latest/' :
+        'http://112.74.109.22:3000/zhihu-daily/api/theme-type/' + id;
 
     return get(url).then(result => {
         if (id === 0) {
@@ -86,8 +86,8 @@ export const loadTheme = (id) => (dispatch, getState) => {
 
 export const loadThemeMore = (id, last) => (dispatch, getState) => {
     const url = id === 0 ?
-        `http://127.0.0.1:3333/api/latest-more/${last}` :
-        `http://127.0.0.1:3333/api/theme-type-more/${id}/${last}`;
+        `http://112.74.109.22:3000/zhihu-daily/api/latest-more/${last}` :
+        `http://112.74.109.22:3000/zhihu-daily/api/theme-type-more/${id}/${last}`;
 
     return get(url).then(result => {
         return dispatch({

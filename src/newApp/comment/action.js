@@ -31,7 +31,7 @@ export const closeComment = () => (dispatch, getState) => {
 }
 
 export const initComment = (aid) => (dispatch, getState) => {
-    return get('http://127.0.0.1:3333/api/comments/' + aid).then(result => {
+    return get('http://112.74.109.22:3000/zhihu-daily/api/comments/' + aid).then(result => {
         dispatch({
             type: 'init-Comment',
             data: result,

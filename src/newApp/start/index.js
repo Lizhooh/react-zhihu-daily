@@ -9,7 +9,7 @@ export default (props) => {
             style={{ background: `url(${props.url}) center center` }}
             >
             <div className="logo">
-                <img src={require("./css/C_.png")} alt=''/>
+                <img src={'http://112.74.109.22/C_.png'} alt=''/>
                 知乎日报
             </div>
         </div>
