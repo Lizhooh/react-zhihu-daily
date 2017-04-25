@@ -31,7 +31,7 @@ export const closeArticle = () => (dispatch, getState) => {
 }
 
 export const initArticle = (aid) => (dispatch, getState) => {
-    return get('http://112.74.109.22:3000/zhihu-daily/api/article/' + aid).then(result => {
+    return get('http://127.0.0.1:3333/api/article/' + aid).then(result => {
         dispatch({
             type: 'init-Article',
             data: result,

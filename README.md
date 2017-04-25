@@ -8,7 +8,7 @@
 - 使用 Redux 管理数据
 - 使用 React-Router 来管路路由
 - 基于 CSS3 动画，Flexbox 布局
-- 基于 Node.js 的后端 API 服务
+- 基于 Node.js (v7.6+) 的后端 API 服务
 
 ### install
 
