@@ -7,7 +7,7 @@ import * as action from './action';
 import Toolbar from './toolbar';
 import Menu from './menu';
 import ListView from './listView';
-import Slide from './slide';
+import Slide from './Slide';
 import Start from './start';
 
 class Main extends Component {
