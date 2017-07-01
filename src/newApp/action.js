@@ -1,14 +1,17 @@
 import fetch from 'isomorphic-fetch';
 
+// const host = 'http://127.0.0.1:3333';
+const host = 'http://192.168.155.1:3333';
+
 const get = (url) => fetch(url)
     .then(res => res.json())
     .catch(err => console.log(err));
 
 export const initStart = () => (dispatch, getState) => {
-    return get('http://127.0.0.1:3333/api/start-image').then(result => {
+    return get(`${host}/api/start-image`).then(result => {
         dispatch({
             type: 'init-start',
-            data: result.creatives[0] || { url: 'http://112.74.109.22/bg.jpg' } ,
+            data: result.creatives[0] || { url: 'http://112.74.109.22/bg.jpg' },
         });
     });
 }
@@ -44,7 +47,7 @@ export const closeMenu = () => (dispatch, getState) => {
 }
 
 export const initMenu = () => (dispatch, getState) => {
-    return get('http://127.0.0.1:3333/api/theme/').then(result => {
+    return get(`${host}/api/theme/`).then(result => {
         dispatch({
             type: 'init-Menu',
             data: result,
@@ -59,8 +62,8 @@ export const changMenuSelect = (id) => ({
 
 export const loadTheme = (id) => (dispatch, getState) => {
     const url = id === 0 ?
-        'http://127.0.0.1:3333/api/latest/' :
-        'http://127.0.0.1:3333/api/theme-type/' + id;
+        `${host}/api/latest/` :
+        `${host}/api/theme-type/` + id;
 
     return get(url).then(result => {
         if (id === 0) {
@@ -86,8 +89,8 @@ export const loadTheme = (id) => (dispatch, getState) => {
 
 export const loadThemeMore = (id, last) => (dispatch, getState) => {
     const url = id === 0 ?
-        `http://127.0.0.1:3333/api/latest-more/${last}` :
-        `http://127.0.0.1:3333/api/theme-type-more/${id}/${last}`;
+        `${host}/api/latest-more/${last}` :
+        `${host}/api/theme-type-more/${id}/${last}`;
 
     return get(url).then(result => {
         return dispatch({

@@ -84,14 +84,14 @@ class Main extends Component {
         return (
             <div>
                 {
-                    start.stop === false &&
-                    <div>
-                        <Start url={start.url} />
-                    </div>
+                    // start.stop === false &&
+                    // <div>
+                    //     <Start url={start.url} />
+                    // </div>
                 }
 
                 {
-                    start.loading === false &&
+                    // start.loading === false &&
                     <div>
 
                         <div>
