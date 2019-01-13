@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import Store from './stores/store';
+import Store from './stores';
 import Routes from './router';
 
 export default () => (
