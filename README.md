@@ -1,7 +1,7 @@
 ## react-zhihu-daily
 基于 React.js 实现的 Webapp 知乎日报 (非官方)
 
-![](/resource/demo.gif)
+![](/demo/demo.gif)
 
 ### install
 

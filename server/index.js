@@ -10,7 +10,6 @@ var app = express();
 
 // app
 (function server() {
-    'use strtic';
 
     this.use(express.static(path.join(__dirname, 'public')));
     this.use(logger('dev'));

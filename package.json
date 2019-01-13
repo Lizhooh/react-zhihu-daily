@@ -2,7 +2,7 @@
   "name": "zhihu-daily",
   "version": "0.1.0",
   "private": true,
-  "author": "Lizhooh <960316408@qq.com>",
+  "author": "Lizhooh <lizhoos@foxmail.com>",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && http-server ./build",
